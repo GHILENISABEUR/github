@@ -1,0 +1,16 @@
+name: Display Weather
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  display_weather:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set City Environment Variable
+        run: echo "CITY=<your_city>" >> $GITHUB_ENV
+      
+      - name: Display Weather
+        run: curl wttr.in/${CITY}
